@@ -5,12 +5,12 @@ Body::Body(const float aWeight): myWeight(aWeight)
 	// EMPTY
 }
 
-void Body::AddForce(const Force& aForce)
+void Body::AddForce(const Force& /*aForce*/)
 {
 
 }
 
-void Body::AddForce(const Force& aForce, const float aSpeedLimit)
+void Body::AddForce(const Force& /*aForce*/, const float /*aSpeedLimit*/)
 {
 
 }

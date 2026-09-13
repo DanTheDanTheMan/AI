@@ -8,6 +8,8 @@
 #include <tge/sprite/sprite.h>
 #include <tge/drawers/SpriteDrawer.h>
 
+class Behaviour;
+
 class Actor
 {
 
@@ -15,6 +17,7 @@ public:
     struct ActorDescription
     {
         std::filesystem::path spritePath = "";
+        Behaviour* behaviour;
     };
 
     Actor() = default;
@@ -37,8 +40,10 @@ private:
     Tga::SpriteSharedData mySharedData = {};
 
     float myMaxSpeed;
-
+    Tga::Vector2f myPosition;
     Body myBody;
+
+    Behaviour* myBehaviour;
 };
 
 inline bool Actor::operator==(const Actor& aItem) const

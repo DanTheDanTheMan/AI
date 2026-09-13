@@ -5,6 +5,8 @@
 #include <tge/texture/TextureManager.h>
 #include <tge/application.h>
 
+#include "Behaviour/Behaviour.h"
+
 void Actor::Init(ActorDescription aDescription)
 {
     auto& graphicsEngine = *Tga::GraphicsEngine::GetInstance();
@@ -19,11 +21,15 @@ void Actor::Init(ActorDescription aDescription)
     mySpriteInstance.pivot = Tga::Vector2f{ 0.5f,0.5f };
     Tga::Vector2f spriteSize = Tga::Vector2f{ 100.0f, 100.0f };
     mySpriteInstance.size = spriteSize;
+
+    myBehaviour = aDescription.behaviour;
+
+    myBehaviour->Mimic(this);
 }
 
 void Actor::Update(const float /*aDeltaTime*/)
 {
-	
+    mySpriteInstance.position = myPosition;
 }
 
 void Actor::Render(Tga::SpriteDrawer& aSpriteDrawer) const

@@ -1,21 +1,12 @@
 #pragma once
-#include <ostream>
+#include <Behaviour/Behaviour.h>
 
-class SeekBehaviour
+class SeekBehaviour: public Behaviour
 {
 public:
-    SeekBehaviour();
-    ~SeekBehaviour();
+    virtual bool Enter(Actor* outActor);
+    virtual bool Mimic(Actor* outActor);
+    virtual bool Exit(Actor* outActor);
+private:
 
-    SeekBehaviour(const SeekBehaviour& aObject);
-    SeekBehaviour& operator=(const SeekBehaviour& c);
-
-    SeekBehaviour(SeekBehaviour&& aObject) noexcept;
-    SeekBehaviour& operator=(SeekBehaviour&& c) noexcept;
-
-    bool operator==(const SeekBehaviour& aItem) const;
-    bool operator<(const SeekBehaviour& aItem) const;
-    bool operator>(const SeekBehaviour& aItem) const;
-
-    friend std::ostream& operator<<(std::ostream& os, const SeekBehaviour& aItem);
 };

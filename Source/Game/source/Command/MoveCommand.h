@@ -1,13 +1,21 @@
 #pragma once
-#include <ostream>
 
-#include "Physics/Body.h"
+#include "Command.h"
 
-class MoveCommand
+class Actor;
+
+struct MoveCommandDescription
+{
+
+};
+
+class MoveCommand: public Command
 {
 public:
-    MoveCommand();
-    ~MoveCommand();
+    MoveCommand() = delete;
+    MoveCommand(MoveCommandDescription aDescription);
 
-    bool Execute(Body& outBody);
+    bool Execute(Actor* outBody);
+private:
+
 };

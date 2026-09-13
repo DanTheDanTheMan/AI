@@ -1,27 +1,8 @@
 #pragma once
-#include <ostream>
-#include <format>
+#include <Behaviour/Behaviour.h>
 
-#include "Command/MoveCommand.h"
-
-class WanderBehaviour
+class WanderBehaviour: public Behaviour
 {
 public:
-    WanderBehaviour();
-
-    WanderBehaviour(const WanderBehaviour& aObject) = delete;
-    WanderBehaviour& operator=(const WanderBehaviour& c) = delete;
-
-    bool operator==(const WanderBehaviour& aItem) const = delete;
-    bool operator<(const WanderBehaviour& aItem) const = delete;
-    bool operator>(const WanderBehaviour& aItem) const = delete;
-
-    friend std::ostream& operator<<(std::ostream& os, const WanderBehaviour& aItem);
+	bool Mimic(Actor* outActor) override;
 };
-
-inline std::ostream& operator<<(std::ostream& os, const WanderBehaviour& aItem)
-{
-    const std::string log = "{{ type: WanderBehaviour }}";
-    os << log << std::endl;
-    return os;
-}

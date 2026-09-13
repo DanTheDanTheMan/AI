@@ -3,7 +3,8 @@
 #include <format>
 #include <memory>
 
-#include "Command/Command.h"
+
+class Actor;
 
 class Behaviour
 {
@@ -16,7 +17,9 @@ public:
 
     friend std::ostream& operator<<(std::ostream& os, const Behaviour& aItem);
 
-    std::unique_ptr<Command> GetCommand();
+    virtual bool Enter(Actor* outActor) = 0;
+    virtual bool Mimic(Actor* outActor) = 0;
+    virtual bool Exit(Actor* outActor) = 0;
 };
 
 
